@@ -29,7 +29,7 @@ mongo --quiet --eval "
 
 
     print('Finished inserting records, now moving on to query phase...')
-    let query_ptn = Math.floor(0.5 * PTN_MAX);  // query middle paritition
+    let query_ptn = Math.floor(0.5 * PTN_MAX);  // query middle partition
     let query_ts = STARTTIME + (Math.floor(0.5 * MINS_MAX) * 1000 * 60);  // query middle date
 
 
