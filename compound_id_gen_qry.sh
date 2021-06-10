@@ -37,7 +37,7 @@ ${MONGO_SHELL_CMD} --quiet --eval "
     //
     // Equality query test (find a single record)
     //
-    print('\n\nEquality query for single record, leveraging index, for key: ptn=' + query_ptn + ', ts=' + query_ts + ', seq=0:');
+    print('\n\nEquality query for single record, leveraging index, for key: ptn=' + query_ptn + ', ts=' + query_ts + ', seq=0:\n');
 
     print(db.records.find({
         '_id': {'ptn': query_ptn, 'ts': query_ts, 'seq': 0}
