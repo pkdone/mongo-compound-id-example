@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 echo "Running data ingestion + query Mongo Shell script to demonstrate compound _id key"
+MONGO_SHELL_CMD="mongosh"  # "mongo" or "mongosh"
 
-mongo --quiet --eval "
+${MONGO_SHELL_CMD} --quiet --eval "
     const MINS_MAX = 84;
     const PTN_MAX = 120;
     const SEQ_MAX = 10;
@@ -36,7 +37,7 @@ mongo --quiet --eval "
     //
     // Equality query test (find a single record)
     //
-    print('Equality query for single record, leveraging index, for key: ptn=' + query_ptn + ', ts=' + query_ts + ', seq=0');
+    print('\n\nEquality query for single record, leveraging index, for key: ptn=' + query_ptn + ', ts=' + query_ts + ', seq=0:');
 
     print(db.records.find({
         '_id': {'ptn': query_ptn, 'ts': query_ts, 'seq': 0}
@@ -50,7 +51,7 @@ mongo --quiet --eval "
     //
     // Range query test (find a set of records)
     //
-    print('Range query for set of records, leveraging index, for range: ptn=' + query_ptn + ', ts=' + query_ts);
+    print('\n\nRange query for set of records, leveraging index, for range: ptn=' + query_ptn + ', ts=' + query_ts + ':');
 
     print(db.records.find({
         '_id': {
